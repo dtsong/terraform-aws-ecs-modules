@@ -78,3 +78,24 @@ resource "aws_network_acl" "private" {
   vpc_id     = aws_vpc.main.id
 }
 // END Private Subnet
+
+resource "aws_security_group" "main" {
+  name   = var.security_group_name
+  vpc_id = aws_vpc.main.id
+
+  egress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
