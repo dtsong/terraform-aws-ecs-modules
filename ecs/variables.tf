@@ -79,7 +79,7 @@ variable "environment" {
   type        = string
 }
 
-variable "port" {
+variable "service_port" {
   description = "The PORT environment variable value to be set to expose the service"
   type        = string
 }
