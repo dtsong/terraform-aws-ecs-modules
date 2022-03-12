@@ -46,6 +46,7 @@ No modules.
 | <a name="input_map_public_ip_on_launch"></a> [map\_public\_ip\_on\_launch](#input\_map\_public\_ip\_on\_launch) | true/false to toggle whether to map an IP on launch or not | `bool` | `true` | no |
 | <a name="input_private_subnet_cidr_block"></a> [private\_subnet\_cidr\_block](#input\_private\_subnet\_cidr\_block) | CIDR Block for Private Subnet | `string` | n/a | yes |
 | <a name="input_public_subnet_cidr_block"></a> [public\_subnet\_cidr\_block](#input\_public\_subnet\_cidr\_block) | CIDR Block for Public Subnet | `string` | n/a | yes |
+| <a name="input_security_group_name"></a> [security\_group\_name](#input\_security\_group\_name) | Name of the Security Group | `string` | n/a | yes |
 
 ## Outputs
 
