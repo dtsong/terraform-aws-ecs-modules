@@ -22,8 +22,7 @@ data "aws_iam_policy_document" "ecs_task_s3" {
 data "aws_iam_policy_document" "ecs_task_role_necessary_access" {
   source_policy_documents = [
     data.aws_iam_policy_document.assume_role_ecs_tasks.json,
-    data.aws_iam_policy_document.ecs_task_s3.json,
-    data.aws_iam_policy_document.lambda_create_eni_for_db.json
+    data.aws_iam_policy_document.ecs_task_s3.json
   ]
 }
 
