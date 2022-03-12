@@ -33,5 +33,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_arn"></a> [arn](#output\_arn) | n/a |
 | <a name="output_id"></a> [id](#output\_id) | n/a |
+| <a name="output_region"></a> [region](#output\_region) | n/a |
 <!-- END_TF_DOCS -->

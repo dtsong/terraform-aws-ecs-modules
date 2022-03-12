@@ -21,7 +21,7 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
             name  = "AWS_REGION"
-            value = var.region
+            value = var.s3_region
           },
           {
             name  = "S3_BUCKET_NAME"
@@ -52,7 +52,7 @@ resource "aws_ecs_task_definition" "main" {
           logDriver = "awslogs"
           options = {
             awslogs-group         = aws_cloudwatch_log_group.ecs_task.name
-            awslogs-region        = var.region
+            awslogs-region        = var.s3_region
             awslogs-stream-prefix = var.application_name
           }
         }
