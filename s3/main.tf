@@ -3,6 +3,6 @@ resource "aws_s3_bucket" "main" {
 }
 
 resource "aws_s3_bucket_acl" "private" {
-    bucket = aws_s3_bucket.main.id
-    acl = "private"
+  bucket = aws_s3_bucket.main.id
+  acl    = "private"
 }
