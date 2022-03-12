@@ -47,12 +47,12 @@ No modules.
 | <a name="input_pg_database_password"></a> [pg\_database\_password](#input\_pg\_database\_password) | PostgreSQL Database password | `string` | n/a | yes |
 | <a name="input_pg_database_port"></a> [pg\_database\_port](#input\_pg\_database\_port) | PostgreSQL Database Port number | `string` | `5432` | no |
 | <a name="input_pg_database_username"></a> [pg\_database\_username](#input\_pg\_database\_username) | PostgreSQL Database user | `string` | n/a | yes |
-| <a name="input_port"></a> [port](#input\_port) | The PORT environment variable value to be set to expose the service | `string` | n/a | yes |
 | <a name="input_public_subnet_id"></a> [public\_subnet\_id](#input\_public\_subnet\_id) | Subnet ID for ECS Service network configuration | `string` | n/a | yes |
-| <a name="input_region"></a> [region](#input\_region) | The AWS region value to be utilized for the task definition | `string` | n/a | yes |
 | <a name="input_s3_bucket_name"></a> [s3\_bucket\_name](#input\_s3\_bucket\_name) | Name of S3 bucket to be passed to task definition as an env variable | `string` | n/a | yes |
+| <a name="input_s3_region"></a> [s3\_region](#input\_s3\_region) | The AWS region value to be utilized for the task definition | `string` | n/a | yes |
 | <a name="input_scheduling_strategy"></a> [scheduling\_strategy](#input\_scheduling\_strategy) | Scheduling strategy to use for the service. The valid values are REPLICA and DAEMON. Defaults to REPLICA | `string` | `"REPLICA"` | no |
 | <a name="input_security_group_id"></a> [security\_group\_id](#input\_security\_group\_id) | Security Group ID for ECS Service network configuration | `string` | n/a | yes |
+| <a name="input_service_port"></a> [service\_port](#input\_service\_port) | The PORT environment variable value to be set to expose the service | `string` | n/a | yes |
 
 ## Outputs
 
