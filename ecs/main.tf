@@ -17,7 +17,7 @@ resource "aws_ecs_task_definition" "main" {
           },
           {
             name  = "PORT"
-            value = var.port
+            value = var.service_port
           },
           {
             name  = "AWS_REGION"
