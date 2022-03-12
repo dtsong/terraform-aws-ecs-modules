@@ -13,6 +13,11 @@ variable "private_subnet_cidr_block" {
   type        = string
 }
 
+variable "db_subnet_group_name" {
+  description = "Name of DB Subnet Group to be created"
+  type        = string
+}
+
 variable "security_group_name" {
   description = "Name of the Security Group"
   type        = string
