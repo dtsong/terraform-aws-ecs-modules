@@ -13,6 +13,11 @@ variable "private_subnet_cidr_block" {
   type        = string
 }
 
+variable "security_group_name" {
+  description = "Name of the Security Group"
+  type        = string
+}
+
 variable "enable_dns_support" {
   description = "true/false to toggle DNS support for VPC"
   type        = bool
