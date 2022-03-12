@@ -24,6 +24,37 @@ variable "ecs_task_role_arn" {
   type        = string
 }
 
+# Database variables (to be set as container environment variables)
+variable "pg_database_hostname" {
+  description = "PostgreSQL Database Hostname"
+  type        = string
+  sensitive   = true
+}
+
+variable "pg_database_port" {
+  description = "PostgreSQL Database Port number"
+  type        = string
+  default     = 5432
+}
+
+variable "pg_database_username" {
+  description = "PostgreSQL Database user"
+  type        = string
+  sensitive   = true
+}
+
+variable "pg_database_password" {
+  description = "PostgreSQL Database password"
+  type        = string
+  sensitive   = true
+}
+
+variable "pg_database_name" {
+  description = "Name of database to connect to"
+  type        = string
+  sensitive   = true
+}
+
 # ECS Task Definition
 variable "family" {
   description = "A unique name for your task definition"

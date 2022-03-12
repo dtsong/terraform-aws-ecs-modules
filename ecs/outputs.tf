@@ -3,5 +3,5 @@ output "task_definition_arn" {
 }
 
 output "ecs_cluster_arn" {
-    value = aws_ecs_service.main.cluster
-} 
+  value = aws_ecs_service.main.cluster
+}
