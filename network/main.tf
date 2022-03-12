@@ -1,5 +1,4 @@
 resource "aws_vpc" "main" {
-  name       = var.name
   cidr_block = var.cidr_block
 
   enable_dns_support   = var.enable_dns_support
@@ -20,7 +19,7 @@ resource "aws_nat_gateway" "main" {
 }
 
 data "aws_availability_zones" "available" {
-  status = "available"
+  state = "available"
 }
 
 // BEGIN Public Subnet
