@@ -1,9 +1,9 @@
-resource "aws_cloudwatch_log_group" "main" {
+resource "aws_cloudwatch_log_group" "ecs_task" {
   name = "/ecs/${var.family}"
 }
 
 resource "aws_ecs_task_definition" "main" {
-  family = var.family
+  family = "${var.family}-task-definition"
   container_definitions = jsonencode(
     [
       {
@@ -13,11 +13,11 @@ resource "aws_ecs_task_definition" "main" {
         environment = [
           {
             name  = "NODE_ENV"
-            value = "production"
+            value = var.environment
           },
           {
             name  = "PORT"
-            value = "5555"
+            value = var.port
           },
           {
             name  = "AWS_REGION"
@@ -31,7 +31,7 @@ resource "aws_ecs_task_definition" "main" {
         logConfiguration = {
           logDriver = "awslogs"
           options = {
-            awslogs-group         = aws_cloudwatch_log_group.main.name
+            awslogs-group         = aws_cloudwatch_log_group.ecs_task.name
             awslogs-region        = var.region
             awslogs-stream-prefix = var.application_name
           }
@@ -41,14 +41,14 @@ resource "aws_ecs_task_definition" "main" {
 
   cpu                      = var.cpu
   memory                   = var.memory
-  execution_role_arn       = var.ecs_execution_arn
-  task_role_arn            = var.ecs_task_arn
-  network_mode             = "awsvpc"
+  execution_role_arn       = var.ecs_execution_role_arn
+  task_role_arn            = var.ecs_task_role_arn
+  network_mode             = var.network_mode
   requires_compatibilities = [var.launch_type]
 }
 
 resource "aws_ecs_service" "main" {
-  name          = var.family
+  name          = "${var.family}-ecs-service"
   cluster       = aws_ecs_cluster.main.arn
   desired_count = var.desired_count
   launch_type   = var.launch_type
@@ -65,5 +65,31 @@ resource "aws_ecs_service" "main" {
 }
 
 resource "aws_ecs_cluster" "main" {
-  name = var.family
+  name = "${var.family}-ecs-cluster"
+
+  configuration {
+    execute_command_configuration {
+      kms_key_id = aws_kms_key.ecs_cluster_logging_key.arn
+      logging    = "OVERRIDE"
+
+      log_configuration {
+        cloud_watch_encryption_enabled = true
+        cloud_watch_log_group_name     = aws_cloudwatch_log_group.ecs_cluster_logs.name
+      }
+    }
+  }
+
+  setting {
+    name  = "containerInsights"
+    value = "enabled"
+  }
+}
+
+resource "aws_cloudwatch_log_group" "ecs_cluster_logs" {
+  name = "/ecs-cluster/${var.family}"
+}
+
+resource "aws_kms_key" "ecs_cluster_logging_key" {
+  description             = "example"
+  deletion_window_in_days = 7
 }
