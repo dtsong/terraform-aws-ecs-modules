@@ -50,11 +50,6 @@ data "aws_iam_policy_document" "ecs_execution" {
       "logs:PutLogEvents"
     ]
 
-    principals {
-      type        = "Service"
-      identifiers = ["ecs-tasks.amazonaws.com"]
-    }
-
     # TODO: Figure out what resources need to be executed and pass those ARNs here
     resources = ["*"]
   }
