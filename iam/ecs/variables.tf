@@ -12,7 +12,7 @@ variable "ecs_task_role_name" {
 
 variable "ecs_task_role_path" {
   description = "ECS Task Role Path (for easier identification)"
-  type = string
+  type        = string
 }
 
 variable "ecs_execution_role_name" {
