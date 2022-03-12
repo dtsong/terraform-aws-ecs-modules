@@ -44,7 +44,6 @@ No modules.
 | <a name="input_enable_dns_hostnames"></a> [enable\_dns\_hostnames](#input\_enable\_dns\_hostnames) | true/false to toggle DNS Hostnames for VPC | `bool` | `true` | no |
 | <a name="input_enable_dns_support"></a> [enable\_dns\_support](#input\_enable\_dns\_support) | true/false to toggle DNS support for VPC | `bool` | `true` | no |
 | <a name="input_map_public_ip_on_launch"></a> [map\_public\_ip\_on\_launch](#input\_map\_public\_ip\_on\_launch) | true/false to toggle whether to map an IP on launch or not | `bool` | `true` | no |
-| <a name="input_name"></a> [name](#input\_name) | Name of VPC | `string` | n/a | yes |
 | <a name="input_private_subnet_cidr_block"></a> [private\_subnet\_cidr\_block](#input\_private\_subnet\_cidr\_block) | CIDR Block for Private Subnet | `string` | n/a | yes |
 | <a name="input_public_subnet_cidr_block"></a> [public\_subnet\_cidr\_block](#input\_public\_subnet\_cidr\_block) | CIDR Block for Public Subnet | `string` | n/a | yes |
 

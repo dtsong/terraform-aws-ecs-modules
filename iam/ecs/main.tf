@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "ecs_task_role_necessary_access" {
 }
 
 resource "aws_iam_role_policy" "ecs_task_s3" {
-  name   = "ecs-task-s3"
+  name   = "ecs-task-get-push-to-s3"
   role   = aws_iam_role.ecs_task.id
   policy = data.aws_iam_policy_document.ecs_task_s3.json
 }
@@ -43,13 +43,13 @@ resource "aws_iam_role" "ecs_task" {
 data "aws_iam_policy_document" "ecs_execution" {
   statement {
     actions = [
-      "ecr:GetAuthorizationToken",
-      "ecr:BatchCheckLayerAvailability",
-      "ecr:GetDownloadUrlForLayer",
-      "ecr:BatchGetImage",
-      "logs:CreateLogStream",
-      "logs:PutLogEvents"
-    ]
+        "ecr:GetAuthorizationToken",
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:BatchGetImage",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ]
 
     principals {
       type        = "Service"
@@ -69,7 +69,7 @@ data "aws_iam_policy_document" "ecs_task_execution_role_necessary_access" {
 }
 
 resource "aws_iam_role" "ecs_execution" {
-  name               = var.ecs_execution_role_name
-  path               = var.ecs_execution_role_path
-  assume_role_policy = data.aws_iam_policy_document.ecs_task_execution_role_necessary_access.json
+  name                = var.ecs_execution_role_name
+  path                = var.ecs_execution_role_path
+  assume_role_policy  = data.aws_iam_policy_document.ecs_task_execution_role_necessary_access.json
 }

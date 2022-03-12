@@ -36,6 +36,7 @@ No modules.
 | <a name="input_ecs_execution_role_name"></a> [ecs\_execution\_role\_name](#input\_ecs\_execution\_role\_name) | Name of ECS execution IAM role | `string` | n/a | yes |
 | <a name="input_ecs_execution_role_path"></a> [ecs\_execution\_role\_path](#input\_ecs\_execution\_role\_path) | ECS Execution IAM Role Path (for easier identification) | `string` | n/a | yes |
 | <a name="input_ecs_task_role_name"></a> [ecs\_task\_role\_name](#input\_ecs\_task\_role\_name) | Name of ECS task IAM role | `string` | n/a | yes |
+| <a name="input_ecs_task_role_path"></a> [ecs\_task\_role\_path](#input\_ecs\_task\_role\_path) | ECS Task Role Path (for easier identification) | `string` | n/a | yes |
 | <a name="input_s3_bucket_arn"></a> [s3\_bucket\_arn](#input\_s3\_bucket\_arn) | ARN of S3 bucket that needs to be accessed by the ECS task role | `string` | n/a | yes |
 
 ## Outputs

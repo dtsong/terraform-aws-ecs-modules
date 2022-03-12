@@ -1,8 +1,3 @@
-variable "name" {
-  description = "Name of VPC"
-  type        = string
-}
-
 variable "cidr_block" {
   description = "CIDR Block for the VPC"
   type        = string
