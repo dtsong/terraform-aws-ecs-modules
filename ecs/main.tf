@@ -27,6 +27,26 @@ resource "aws_ecs_task_definition" "main" {
             name  = "S3_BUCKET_NAME"
             value = var.s3_bucket_name
           },
+          {
+            name  = "PGHOST"
+            value = var.pg_database_hostname
+          },
+          {
+            name  = "PGPORT"
+            value = var.pg_database_port
+          },
+          {
+            name  = "PGUSER"
+            value = var.pg_database_username
+          },
+          {
+            name  = "PGPASSWORD"
+            value = var.pg_database_password
+          },
+          {
+            name  = "PGDATABASE"
+            value = var.pg_database_name
+          },
         ],
         logConfiguration = {
           logDriver = "awslogs"
