@@ -84,7 +84,7 @@ variable "service_port" {
   type        = string
 }
 
-variable "region" {
+variable "s3_region" {
   description = "The AWS region value to be utilized for the task definition"
   type        = string
 }
