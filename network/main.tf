@@ -140,13 +140,25 @@ resource "aws_subnet" "private" {
 }
 
 resource "aws_route_table" "private" {
+  count = local.max_subnet_length > 0 ? local.nat_gateway_count : 0
+
   vpc_id = aws_vpc.main.id
+
+  tags = merge(
+    {
+      "Name" = var.single_nat_gateway ? "${var.name}-${var.private_subnet_suffix}" : format(
+        "${var.name}-${var.private_subnet_suffix}-%s",
+        element(var.azs, count.index),
+      )
+    },
+    var.tags,
+  )
 }
 
 resource "aws_route_table_association" "private" {
   count = length(var.private_subnets) > 0 ? length(var.private_subnets) : 0
 
-    route_table_id = element(
+  route_table_id = element(
     aws_route_table.private[*].id,
     var.single_nat_gateway ? 0 : count.index,
   )

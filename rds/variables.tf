@@ -17,6 +17,11 @@ variable "security_group_id" {
   type        = string
 }
 
+variable "database_subnet_group_name" {
+  description = "Database Subnet Group Name to create the RDS instance within"
+  type = string
+}
+
 ##########################
 # RDS instance variables #
 ##########################
