@@ -30,6 +30,8 @@ module "db" {
   multi_az               = var.multi_az
   vpc_security_group_ids = [var.security_group_id]
 
+  db_subnet_group_name = var.database_subnet_group_name
+
   maintenance_window              = var.maintenance_window
   backup_window                   = var.backup_window
   enabled_cloudwatch_logs_exports = var.enabled_cloudwatch_logs_exports
