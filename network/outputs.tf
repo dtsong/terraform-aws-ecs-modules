@@ -10,6 +10,7 @@ output "security_group_id" {
   value = aws_security_group.main.id
 }
 
-output "db_subnet_group_name" {
-  value = aws_db_subnet_group.database.id
+output "database_subnet_group_name" {
+  description = "Name of database subnet group"
+  value       = try(aws_db_subnet_group.database[0].name, "")
 }
